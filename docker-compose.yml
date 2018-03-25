@@ -1,0 +1,33 @@
+version: '3'
+services:
+    monolito-1:
+      build:
+        context: .
+      image: maiconmichelon/monolito1
+      container_name: monolito-1
+      networks: 
+        - rede-monolito
+
+    monolito-2:
+      build:
+        context: .
+      image: maiconmichelon/monolito1
+      container_name: monolito-2
+      networks: 
+        - rede-monolito
+
+    nginx:
+      build:
+        context: ./nginx
+      image: maiconmichelon/nginx
+      container_name: nginx-server
+      ports: 
+        - "80:80"
+      networks: 
+        - rede-monolito
+      depends_on: 
+        - monolito-1
+        - monolito-2
+networks:
+  rede-monolito:
+      driver: bridge
