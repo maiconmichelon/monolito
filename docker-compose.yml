@@ -16,6 +16,14 @@ services:
       networks: 
         - rede-monolito
 
+    monolito-3:
+      build:
+        context: .
+      image: maiconmichelon/monolito1
+      container_name: monolito-3
+      networks:
+        - rede-monolito
+
     nginx:
       build:
         context: ./nginx
@@ -28,6 +36,7 @@ services:
       depends_on: 
         - monolito-1
         - monolito-2
+        - monolito-3
 networks:
   rede-monolito:
       driver: bridge
