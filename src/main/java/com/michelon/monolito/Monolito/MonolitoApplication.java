@@ -15,17 +15,20 @@ public class MonolitoApplication {
 	}
 	
 	@GetMapping("servico-1")
-	public ResponseEntity<String> hello() {
+	public ResponseEntity<String> hello() throws InterruptedException {
+		Thread.sleep(500);
 		return ResponseEntity.ok("Serviço 1");
 	}
 
 	@GetMapping("servico-2")
-	public ResponseEntity<String> helloWorld() {
+	public ResponseEntity<String> helloWorld() throws InterruptedException {
+		Thread.sleep(500);
 		return ResponseEntity.ok("Serviço 2");
 	}
 	
 	@GetMapping("servico-3")
-	public ResponseEntity<String> info() {
+	public ResponseEntity<String> info() throws InterruptedException {
+		Thread.sleep(500);
 		return ResponseEntity.ok("Serviço 3");
 	}
 	
